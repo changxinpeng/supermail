@@ -1,7 +1,6 @@
 <template>
   <div class="tab-control">
-    <div v-for="(item,index) in titles" 
-         :key="index"
+    <div v-for="(item,index) in titles" :key="index"
          class="tab-control-item"
          :class="{active: index === currentIndex}"
          @click="itemClick(index)">
@@ -10,29 +9,29 @@
   </div>
 </template>
 
-<script type="text/javascript">
-export default {
-  name: "TabControl.vue",
-  props: {
-    titles: {
-      type: Array,
-      default() {
-        return []
+<script>
+  export default {
+    name: "TabControl",
+    props: {
+      titles: {
+        type: Array,
+        default() {
+          return []
+        }
+      }
+    },
+    data() {
+      return {
+        currentIndex: 0
+      }
+    },
+    methods: {
+      itemClick(index) {
+        this.currentIndex = index;
+        this.$emit('tabClick', index)
       }
     }
-  },
-  data() {
-    return {
-      currentIndex: 0
-    }
-  },
-  methods: {
-    itemClick(index) {
-      this.currentIndex = index;
-      this.$emit('tabClick', index)
-    }
   }
-}
 </script>
 
 <style scoped>

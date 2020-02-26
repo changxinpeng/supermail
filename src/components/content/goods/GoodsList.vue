@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
 import GoodsListItem from './GoodsListItem'
 
 export default {
@@ -13,13 +13,11 @@ export default {
   components: {
     GoodsListItem
   },
-  data() {
-    return {
-      goods: {
-        type: Array,
-        default() {
-          return []
-        }
+  props: {
+    goods: {
+      type: Array,
+      default() {
+        return []
       }
     }
   }
